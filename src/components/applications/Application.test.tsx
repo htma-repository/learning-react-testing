@@ -28,8 +28,10 @@ describe("Applications", () => {
     const selectElement = screen.getByRole<HTMLSelectElement>("combobox");
     expect(selectElement).toBeInTheDocument();
 
-    const buttonElement = screen.getByRole<HTMLButtonElement>("button");
-    expect(buttonElement).toBeInTheDocument();
+    const buttonElement = screen.getByRole<HTMLButtonElement>("button", {
+      name: /submit/i,
+    });
+    expect(buttonElement).toBeDisabled();
 
     // const paragraphElement =
     //   screen.getByRole<HTMLParagraphElement>("paragraph");

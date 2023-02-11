@@ -1,6 +1,7 @@
-import { screen, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
 import Counter from "./Counter";
+import { render, screen, RenderOptions } from "../../test-utils";
 
 describe("Counter", () => {
   test("render correctly", () => {
@@ -24,10 +25,10 @@ describe("Counter", () => {
     expect(inputElement).toBeInTheDocument();
   });
 
-  function userEventSetup(jsx: React.ReactElement) {
+  function userEventSetup(jsx: React.ReactElement, options?: RenderOptions) {
     return {
       user: userEvent.setup(),
-      ...render(jsx),
+      ...render(jsx, options),
     };
   }
 

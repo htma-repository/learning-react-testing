@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { SkillsProps } from "../types/types.types";
+import { SkillsProps } from "../../types/types.types";
 
 export default function Skills({ skills }: SkillsProps) {
   const [isLogin, setIsLogin] = useState(false);

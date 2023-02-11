@@ -1,12 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CounterContext } from "../../context/CounterProvider";
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
   const [numberValue, setNumberValue] = useState<number>(0);
-
-  const incrementHandler = () => {
-    setCount((prev) => prev + 1);
-  };
+  const { count, setCount, increment } = useContext(CounterContext);
 
   const numberChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNumberValue(+event.target.value);
@@ -20,7 +17,7 @@ export default function Counter() {
     }
 
     if (numberValue) {
-      setCount((prev) => prev + +numberValue);
+      setCount((prevState) => prevState + +numberValue);
     }
 
     setNumberValue(0);
@@ -43,7 +40,7 @@ export default function Counter() {
     >
       <h1>{count}</h1>
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <button onClick={incrementHandler}>Increment</button>
+        <button onClick={increment}>Increment</button>
         <form onSubmit={numberSetHandler}>
           <input
             type="number"

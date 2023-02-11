@@ -1,4 +1,4 @@
-import { GreetProps } from "../types/types.types";
+import { GreetProps } from "../../types/types.types";
 
 export default function Greet({ name }: GreetProps) {
   return (
